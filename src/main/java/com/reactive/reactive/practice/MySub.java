@@ -15,7 +15,7 @@ public class MySub implements Subscriber<Integer> {
         this.s = s;
 
         log.info("구독자 : 컨텐츠 1개 요청");
-        s.request(11);
+        this.s.request(11);
     }
 
     @Override
