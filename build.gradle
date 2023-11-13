@@ -22,11 +22,25 @@ repositories {
 }
 
 dependencies {
+	// Spring WebFlux
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	// DB
+	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	runtimeOnly 'io.asyncer:r2dbc-mysql'
+
+	// Lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// Test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
+}
+
+tasks.named('bootBuildImage') {
+	builder = 'paketobuildpacks/builder-jammy-base:latest'
 }
 
 tasks.named('test') {
