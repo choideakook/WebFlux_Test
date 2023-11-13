@@ -20,4 +20,12 @@ public class MyService {
     public Flux<MyEntity> findAll() {
         return repository.findAll();
     }
+
+    public Mono<MyEntity> findById(Long id) {
+        return repository.findById(id);
+    }
+
+    public Mono<MyEntity> findByName(String name) {
+        return repository.findByName(name);
+    }
 }
